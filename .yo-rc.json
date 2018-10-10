@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "William Funkenbusch",
+      "authorEmail": "williamfunkenbusch@gmail.com",
+      "authorUrl": ""
+    }
+  }
+}

@@ -1,6 +1,6 @@
 'use strict';
 const assert = require('assert');
-const mcmc = require('../index.js');
+const mcmc = require('../lib/index.js');
 var clonedeep = require('lodash.clonedeep');
 
 // Tests if constructor properly adds nodes to class graph
@@ -64,7 +64,7 @@ describe('bridge', () => {
 });
 
 // Tests if the isBridge function properly restores the edges after being called
-describe('restore', () => {
+describe('bridge', () => {
   it('restores the edges', () => {
     var nodes = [[0, 0], [1, 1], [2, 2], [3, 3]];
     var Graph = new mcmc.Graph(nodes);

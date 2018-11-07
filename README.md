@@ -16,7 +16,7 @@ where $e$ is an edge, $w_e$ is the weight of an edge (the distance between the t
 
 Implementation:
 * Run using Javascript, node.js (v8 or above)
-* Needs the following modules installed: jsnetworkx, lodash-clonedeep, command-line-args, and assert (for testing)
+* Needs the following modules installed: jsnetworkx, lodash-clonedeep, command-line-args, mocha (for testing), assert (for testing), istanbul (for coverage), and coveralls mocha-lcov-reporter (for coverage)
 * Run: npm install wfunkenbusch-markov-chain-monte-carlo
 * Create a .js file which calls the main function and sets inputs
 * Run: node *file name*.js

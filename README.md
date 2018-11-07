@@ -17,11 +17,23 @@ where $e$ is an edge, $w_e$ is the weight of an edge (the distance between the t
 Implementation:
 * Run using Javascript, node.js (v8 or above)
 * Needs the following modules installed: jsnetworkx, lodash-clonedeep, command-line-args, mocha (for testing), assert (for testing), istanbul (for coverage), and coveralls mocha-lcov-reporter (for coverage)
-* Run: npm install wfunkenbusch-markov-chain-monte-carlo
-* Create a .js file which calls the main function and sets inputs
-* Run: node *file name*.js
 
-Ex. .js file
+1. npm install wfunkenbusch-markov-chain-monte-carlo
+2. Create a .js file which calls the main function and sets inputs
+3. node *file name*.js
+
+Alternatively,
+
+1. git clone https://github.com/wfunkenbusch/Markov-Chain-Monte-Carlo
+2. Enter repository
+3. node ./lib/index.js/ --nodes *nodes* --T *T* --r *r* --N *N*
+
+To run unit tests:
+
+1. Enter repository
+2. npm test
+
+Example .js file:
 
 const mcmc = require('wfunkenbusch-markov-chain-monte-carlo')
 var options = {};
@@ -52,8 +64,24 @@ Outputs:
 
 All outputs are printed to the console.
 
-* Current iteration number, for keeping track of code progress.
-* Each adjacency matrix, in order of appearance, followed by the number of times it appeared.
+* Current iteration number, for keeping track of code progress. To suppress, comment out console.log(i + 1) in main(). To reduce the number of outputs, console.log(i + 1) may be replaced with:
+
+if ((i + 1) % n === 0) {
+    console.log(i + 1)
+}
+
+where n is the fraction of outputs to print.
+
+* The top 1% of adjacency matrices, followed by the number of times they appeared. Prioritizes graphs which appeared earlier. To change the percentage of top graphs printed, replace the line
+
+var nBestGraphs = Math.floor(Fun.AList.length / 100 + 1);
+
+with
+
+var nBestGraphs = Math.floor(Fun.AList.length * (*fraction to print*) + 1);
+
 * The expected number of edges connected to the source node.
 * The expected number of edges in the graph.
 * The expected value of the maximum shortest path from the source node to all other nodes.
+
+Note: the total number of adjacency matrices is N + 1.
